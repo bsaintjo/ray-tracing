@@ -1,0 +1,30 @@
+[package]
+name = "ray-tracing"
+version = "0.1.0"
+authors = ["Brandon Saint-John <bsaintjo@ucsc.edu>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+impl_ops = "0.1.1"
+
+[lib]
+name = "ray_tracing"
+path = "src/lib.rs"
+
+[[bin]]
+name = "example-ppm"
+path = "src/bin/example_ppm.rs"
+
+[[bin]]
+name = "example-ppm-vec3"
+path = "src/bin/example_ppm_vec3.rs"
+
+[[bin]]
+name = "lerp"
+path = "src/bin/blue_blend.rs"
+
+[[bin]]
+name = "hit_sphere"
+path = "src/bin/hit_sphere.rs"
