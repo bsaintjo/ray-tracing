@@ -1,19 +1,25 @@
 use ray_tracing::{Ray, Vec3};
 
-fn hit_sphere(center: Vec3, radius: f32, ray: &Ray) -> bool {
+fn hit_sphere(center: Vec3, radius: f32, ray: &Ray) -> Option<f32> {
     let oc = ray.origin() - center;
     let a = ray.direction().dot(ray.direction());
     let b = 2.0 * oc.dot(ray.direction());
     let c = oc.dot(&oc) - radius *radius;
     let discriminant = (b * b) - (4.0 * a * c);
-    discriminant > 0.0
+    if discriminant < 0.0 {
+        None
+    } else {
+        Some((-b - discriminant.sqrt()) / (2.0 * a))
+    }
 }
 
 fn color(ray: &Ray) -> Vec3 {
     let center = Vec3::new(0., 0., -1.);
     let radius = 0.5;
-    if hit_sphere(center, radius, ray) {
-        Vec3::new(1., 0., 0.)
+    if let Some(t) = hit_sphere(center, radius, ray) {
+        let pos = Vec3::new(0., 0., -1.);
+        let big_n = (ray.point_at_parameter(t) - pos).unit_vector();
+        0.5 * (big_n + 1.)
     } else {
         let unit = ray.direction().clone().unit_vector();
         let t = 0.5 * (unit.y() + 1.0);

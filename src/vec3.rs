@@ -2,7 +2,7 @@ use impl_ops::*;
 use std::ops;
 use std::ops::{Neg};
 
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct Vec3 {
     es: [f32; 3]
 }

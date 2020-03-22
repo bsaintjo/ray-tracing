@@ -26,5 +26,9 @@ name = "lerp"
 path = "src/bin/blue_blend.rs"
 
 [[bin]]
-name = "hit_sphere"
+name = "hit-sphere"
 path = "src/bin/hit_sphere.rs"
+
+[[bin]]
+name = "blend-sphere"
+path = "src/bin/blend_sphere.rs"
