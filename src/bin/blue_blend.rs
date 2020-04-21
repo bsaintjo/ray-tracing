@@ -10,7 +10,7 @@ fn color(ray: &Ray) -> Vec3 {
 
 fn main() {
     let nx = 200;
-    let ny = 200;
+    let ny = 100;
     println!("P3\n{} {}\n255", nx, ny);
 
     let lower_left_corner = Vec3::new(-2.0, -1.0, -1.0);

@@ -65,6 +65,13 @@ impl Vec3 {
         let len = self.length();
         self / len
     }
+
+    pub fn write_color(self) {
+        let color_r = (255.999 * self.r()) as usize;
+        let color_g = (255.999 * self.g()) as usize;
+        let color_b = (255.999 * self.b()) as usize;
+        println!("{} {} {}", color_r, color_g, color_b);
+    }
 }
 
 impl_ops::impl_op_ex_commutative!(+ |a: &Vec3, b: &f32| -> Vec3 {
