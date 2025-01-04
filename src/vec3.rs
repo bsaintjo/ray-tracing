@@ -1,6 +1,4 @@
-use impl_ops::*;
-use std::ops;
-use std::ops::{Neg};
+use auto_ops::*;
 
 #[derive(Clone, Debug)]
 pub struct Vec3 {
@@ -74,126 +72,113 @@ impl Vec3 {
     }
 }
 
-impl_ops::impl_op_ex_commutative!(+ |a: &Vec3, b: &f32| -> Vec3 {
+impl_op_ex_commutative!(+ |a: &Vec3, b: &f32| -> Vec3 {
         let e0 = a.x() + b;
         let e1 = a.y() + b;
         let e2 = a.z() + b;
         Vec3::new(e0, e1, e2)
 });
 
-impl_ops::impl_op_ex!(+ |a: &Vec3, b: &Vec3| -> Vec3 {
+impl_op_ex!(+ |a: &Vec3, b: &Vec3| -> Vec3 {
         let e0 = a.x() + b.x();
         let e1 = a.y() + b.y();
         let e2 = a.z() + b.z();
         Vec3::new(e0, e1, e2)
 });
 
-impl_ops::impl_op_ex!(* |a: &Vec3, b: &Vec3| -> Vec3 {
+impl_op_ex!(* |a: &Vec3, b: &Vec3| -> Vec3 {
         let e0 = a.x() * b.x();
         let e1 = a.y() * b.y();
         let e2 = a.z() * b.z();
         Vec3::new(e0, e1, e2)
 });
 
-impl_ops::impl_op_ex_commutative!(* |a: &Vec3, b: &f32| -> Vec3 {
+impl_op_ex_commutative!(* |a: &Vec3, b: &f32| -> Vec3 {
         let e0 = a.x() * b;
         let e1 = a.y() * b;
         let e2 = a.z() * b;
         Vec3::new(e0, e1, e2)
 });
 
-impl_ops::impl_op_ex!(+= |a: &mut Vec3, b: &Vec3| {
+impl_op_ex!(+= |a: &mut Vec3, b: &Vec3| {
     let e0 = a.x() + b.x();
     let e1 = a.y() + b.y();
     let e2 = a.z() + b.z();
     *a = Vec3::new(e0, e1, e2);
 });
 
-impl_ops::impl_op_ex!(*= |a: &mut Vec3, b: &Vec3| {
+impl_op_ex!(*= |a: &mut Vec3, b: &Vec3| {
     let e0 = a.x() * b.x();
     let e1 = a.y() * b.y();
     let e2 = a.z() * b.z();
     *a = Vec3::new(e0, e1, e2);
 });
 
-impl_ops::impl_op_ex!(*= |a: &mut Vec3, b: &f32| {
+impl_op_ex!(*= |a: &mut Vec3, b: &f32| {
     let e0 = a.x() * b;
     let e1 = a.y() * b;
     let e2 = a.z() * b;
     *a = Vec3::new(e0, e1, e2);
 });
 
-impl_ops::impl_op_ex!(/ |a: &Vec3, b: &Vec3| -> Vec3 {
+impl_op_ex!(/ |a: &Vec3, b: &Vec3| -> Vec3 {
     let e0 = a.x() / b.x();
     let e1 = a.y() / b.y();
     let e2 = a.z() / b.z();
     Vec3::new(e0, e1, e2)
 });
 
-impl_ops::impl_op_ex!(/ |a: &Vec3, b: &f32| -> Vec3 {
+impl_op_ex!(/ |a: &Vec3, b: &f32| -> Vec3 {
     let e0 = a.x() / b; let e1 = a.y() / b;
     let e2 = a.z() / b;
     Vec3::new(e0, e1, e2)
 });
 
-impl_ops::impl_op_ex!(/= |a: &mut Vec3, b: &Vec3| {
+impl_op_ex!(/= |a: &mut Vec3, b: &Vec3| {
     let e0 = a.x() / b.x();
     let e1 = a.y() / b.y();
     let e2 = a.z() / b.z();
     *a = Vec3::new(e0, e1, e2)
 });
 
-impl_ops::impl_op_ex!(/= |a: &mut Vec3, b: &f32| {
+impl_op_ex!(/= |a: &mut Vec3, b: &f32| {
     let e0 = a.x() / b;
     let e1 = a.y() / b;
     let e2 = a.z() / b;
     *a = Vec3::new(e0, e1, e2)
 });
 
-impl_ops::impl_op_ex!(- |a: &Vec3, b: &f32| -> Vec3 {
+impl_op_ex!(- |a: &Vec3, b: &f32| -> Vec3 {
     let e0 = a.x() - b;
     let e1 = a.y() - b;
     let e2 = a.z() - b;
     Vec3::new(e0, e1, e2)
 });
 
-impl_ops::impl_op_ex!(- |a: &Vec3, b: &Vec3| -> Vec3 {
+impl_op_ex!(- |a: &Vec3, b: &Vec3| -> Vec3 {
     let e0 = a.x() - b.x();
     let e1 = a.y() - b.y();
     let e2 = a.z() - b.z();
     Vec3::new(e0, e1, e2)
 });
 
-impl_ops::impl_op_ex!(-= |a: &mut Vec3, b: &f32| {
+impl_op_ex!(-= |a: &mut Vec3, b: &f32| {
     let e0 = a.x() - b;
     let e1 = a.y() - b;
     let e2 = a.z() - b;
     *a = Vec3::new(e0, e1, e2);
 });
 
-impl_ops::impl_op_ex!(-= |a: &mut Vec3, b: &Vec3| {
+impl_op_ex!(-= |a: &mut Vec3, b: &Vec3| {
     let e0 = a.x() - b.x();
     let e1 = a.y() - b.y();
     let e2 = a.z() - b.z();
     *a = Vec3::new(e0, e1, e2);
 });
 
-
-impl Neg for Vec3 {
-    type Output = Vec3;
-
-    fn neg(self) -> Vec3 {
-        let e0 = -self.x();
-        let e1 = -self.y();
-        let e2 = -self.z();
-        Vec3::new(e0, e1, e2)
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
-    }
-}
+impl_op_ex!(- |a: &Vec3| -> Vec3 {
+    let e0 = -a.x();
+    let e1 = -a.y();
+    let e2 = -a.z();
+    Vec3::new(e0, e1, e2)
+});

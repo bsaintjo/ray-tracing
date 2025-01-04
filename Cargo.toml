@@ -2,12 +2,12 @@
 name = "ray-tracing"
 version = "0.1.0"
 authors = ["Brandon Saint-John <bsaintjo@ucsc.edu>"]
-edition = "2018"
+edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-impl_ops = "0.1.1"
+auto_ops = "0.3.0"
 
 [lib]
 name = "ray_tracing"
