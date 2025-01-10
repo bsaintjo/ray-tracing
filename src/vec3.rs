@@ -1,6 +1,6 @@
 use auto_ops::*;
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Default)]
 pub struct Vec3 {
     es: [f32; 3]
 }
